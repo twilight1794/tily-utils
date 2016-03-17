@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!ELEMENT vCardBatch (main,addres,comminication,hobbies,file)>
+<!--Main//-->
+<!ELEMENT main (name,2name,lname,born)>
+<!ELEMENT name (#PCDATA) #REQUIRED>
+<!ATTLIST name origin (CDATA|*)*>
+<!ATTLIST name mean (CDATA|*)*>
+<!ELEMENT 2name (#PCDATA) *>
+<!ATTLIST 2name origin (CDATA|*) *>
+<!ATTLIST 2name mean (CDATA|*) *>
+<!ELEMENT lname (#PCDATA) #REQUIRED>
+<!ATTLIST lname born (f-m|f-f|m-m) f-m>
+<!ELEMENT born (day,month,year,hour,min)>
+<!ATTLIST born number (NMTOKEN) 1>
+<!ATTLIST born calendar (greg|world|sun|hol) greg>
+<!ELEMENT day (CDATA|*) #REQUIRED>
+<!ELEMENT month (CDATA|*) #REQUIRED>
+<!ELEMENT year (CDATA|*) #REQUIRED>
+<!ELEMENT hour (CDATA|*) *>
+<!ELEMENT min (CDATA|*) *>
+<!--Address//-->
+<!ELEMENT address (street,numhouse,suburb,city,state,country)>
+<!ELEMENT street (#PCDATA) *>
+<!ELEMENT numhouse (NMTOKEN) *>
+<!ATTLIST numhouse int (NMTOKEN) #IMPLIED)
+<!ELEMENT suburb (#PCDATA) *>
+<!ELEMENT city (NMTOKEN) *>
+<!ELEMENT state (NMTOKEN) *>
+<!ELEMENT country (NMTOKEN) *>
+<!--Communication//-->
+<!ELEMENT communication (email,tel,otherc)
+<!ELEMENT email (homee,worke,cele,othere)
+<!ELEMENT homee (#PCDATA) *>
+<!ATTLIST homee server (Microsoft|Google|Yahoo) #IMPLIED>
+<!ATTLIST homee service (Hotmail/Outlook|Gmail|Yahoo) #IMPLIED>
+<!ELEMENT worke (#PCDATA) *>
+<!ATTLIST worke server (Microsoft|Google|Yahoo) #IMPLIED>
+<!ATTLIST worke service (Hotmail/Outlook|Gmail|Yahoo) #IMPLIED>
+<!ELEMENT cele (#PCDATA) *>
+<!ATTLIST cele server (Microsoft|Google|Yahoo) #IMPLIED>
+<!ATTLIST cele service (Hotmail/Outlook|Gmail|Yahoo) #IMPLIED>
+<!ELEMENT othere (#PCDATA) *>
+<!ATTLIST othere server (Microsoft|Google|Yahoo) #IMPLIED>
+<!ATTLIST othere service (Hotmail/Outlook|Gmail|Yahoo) #IMPLIED>
+<!ELEMENT tel (celt,homet,nett,loct,othert)>
+<!ELEMENT celt (NMTOKEN) *>
+<!ELEMENT homet (NMTOKEN) *>
+<!ELEMENT nett (NMTOKEN) *>
+<!ELEMENT loct (NMTOKEN) *>
+<!ELEMENT othert (NMTOKEN) *>
+<!ELEMENT otherc (website)>
+<!ELEMENT website (#PCDATA) *>
+<!ATTLIST website ip (NMTOKEN|*) *>
+<!--Hobbies//-->
+<!ELEMENT hobbies (likes,activities,otherh)>
+<!ELEMENT likes (music,art,sport,food,life,who,color,schedule,moreay)>
+<!ELEMENT music (#PCDATA)>
+<!ELEMENT art (#PCDATA)>
+<!ELEMENT sport (#PCDATA)>
+<!ELEMENT food (#PCDATA)>
+<!ELEMENT life (#PCDATA)>
+<!ELEMENT who (#PCDATA)>
+<!ATTLIST who enc (Shift|ROT-16|XOR-224|ROT-13|B64|yEnc|Swap|Reverse|Block|Hex|Quoted-Printable|URL-Enc|HTML-Unicode|None) None>
+<!ELEMENT color (#PCDATA)>
+<!ELEMENT schedule (#PCDATA)>
+<!ELEMENT moreay (#PCDATA)>
+<!ELEMENT activities (preferences,projects)>
+<!ELEMENT preferences (#PCDATA)>
+<!ELEMENT projects (#PCDATA)>
+<!ELEMENT otherh (#PCDATA)>
+<!--File_Data//-->
+<!ELEMENT file (progsrc,prog,instdir)>
+<!ELEMENT progsrc>
+<!ATTLIST progsrc gt (yes|no) #REQUIRED>
+<!ELEMENT prog (#PCDATA)>
+<!ATTLIST prog version (NMTOKEN) #REQUIRED>
+
+<!ELEMENT instdir (#PCDATA)>
