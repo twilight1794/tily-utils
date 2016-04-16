@@ -1,4 +1,4 @@
-@echo off
+﻿@echo off
 title PC Garcil Cleaner (Advanced)
 color 0a
 echo Bienvenidos a PC Garcil Cleaner En Advanced Mode
@@ -70,6 +70,46 @@ if %nettemp%==y (
 if exist %alocal% (del /s /q "%alocal%\Microsoft\Windows\Temporary Internet Files\") else (del /s /q "")
 ) else (goto history)
 
+:history
+set /p history=
+if %history% == y (goto 3SO) else (goto cookies)
+:3SO
+if exist “%systemdrive%\Documents and Settings” (del %appdata%\ /s / && goto cookies)
+if exist “%systemdrive%\Users” (del %aroaming%\Microsoft\Windows\Cookies\*.* /s / && goto cookies)
+:recent
+set /p recent=
+if %recent% == y (goto 4SO) else (goto linknet)
+:4SO
+if exist “%systemdrive%\Documents and Settings” (del %appdata%\ /s / && goto linknet)
+if exist “%systemdrive%\Users” (del %aroaming%\Microsoft\Windows\Recent\*.* /s / && goto linknet)
+:linknet
+set /p linknet=
+if %linknet% == y (goto 5SO) else (goto linknet)
+:5SO
+if exist “%systemdrive%\Documents and Settings” (del %appdata%\ /s / && goto chromec)
+if exist “%systemdrive%\Users” (del %aroaming%\Microsoft\Windows\Network Shorcuts\*.* /s / && goto chromec)
+:chromec
+set /p chromec=
+if %chrome% == y (goto chromed) else (goto firefoxc)
+:chromed
+set /p chromed=
+if %chromed% == y (goto 6SO) else (goto firefoxc)
+:6SO
+if exist “%systemdrive%\Documents and Settings” (del %appdata%\ /s / && goto firefoxc)
+if exist “%systemdrive%\Users” (del %alocal%\Google Chrome\User Data\Default\*.* /s / && goto firefoxc)
+:firefoxc
+set /p firefoxc=
+if %firefoxc% == y (goto firefoxd) else (goto wmplayer)
+:firefoxd
+set /p firefoxd=
+if %firefoxd% == y (goto 7SO) else (goto wmplayer)
+:7SO
+if exist “%systemdrive%\Documents and Settings” (del %appdata%\ /s / && goto wmplayer)
+if exist “%systemdrive%\Users” (del %aroaming%\Mozilla Firefox\Profiles\*.* /s / && goto wmplayer)
+:wmplayer
+set /p wmplayer=
+if %wmplayer% == y (goto 8SO) else (goto winlive)
+:8SO
 del %homedrive%ProgramData/Microsoft/Search/Dat/Application/ /s /q
 goto winlive
 :winlive
