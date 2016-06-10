@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" ?> 
+<gadget> 
+<name>LiveSearch 1.0</name> 
+<namespace>Giovanny.Garciliano</namespace> 
+<version>1.0</version> 
+<author name="Live Corp.&Giovanny Garciliano"> 
+<info url="http://livegarcil.ucoz.org" /> 
+<logo src="logo.png"/> 
+</author> 
+<copyright>&#3; 2014</copyright> 
+<description>¡¡¡Una nueva version del gadget para buscar archivos!!! ewe</description> 
+<icons> 
+<icon height="48" width="48" src="icono.png" /> 
+</icons> 
+<hosts> 
+<host name="sidebar"> 
+<base type="HTML" src="index.html" /> 
+<permissions>full</permissions> 
+<platform minPlatformVersion="1.0" /> 
+<defaultImage src="logo.png" /> 
+</host> 
+</hosts> 
+</gadget>

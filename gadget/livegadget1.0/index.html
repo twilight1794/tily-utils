@@ -1,0 +1,51 @@
+<html>
+<head>
+<title>Buscador LiveSearch 1.0</title>
+<h1>LiveSearch</h1>
+<style type="text/css" media="screen">
+body {height:110;width:164;padding:2px;border:3px solid #ddd;background-color:#3e6ce0;}
+h1 {font-size:14px;color:white;}
+</style>
+</head>
+<body>
+<div class="buscador" >
+<form name="formulario" action="" onsubmit="return buscar();">
+<input type="text" name="q" size="31" maxlength="255" value="" /><br />
+               Buscar por distintos tipos de archivos: 
+<select name="as_filetype">
+<option value=".txt"> Documento de Texto</option>
+<option value=".docx" > Documento de Word (.docx)</option>
+<option value=".xlsx" > Hoja de Cálculo de Excel (.xlsx)</option>
+<option value=".pptx" > Presentacion de PowerPoint (.pptx)</option>
+<option value=".jpg"".jpeg"".png"".gif"".bmp" > Imagenes</option>
+<option value=".3gp"".avi"".flv"".webm"".mp4"".vmw" > Videos </option>
+<option value=".mp3"".wma"".aac"".wav"".ogg"".midi" > Musica </option>
+<option value=".sys"".bat"".cat"".cmd"".dat"".db"".sys"".tmp"> Archivos de Sistema </option>
+<option value=".exe"".com"> Ejecutables </option>
+</select><br />
+Buscar en distintas carpetas:
+<select name="as_sitesearch">
+<option value="search-ms://C:/" > Disco Duro</option>
+<option value="search-ms://D:/" > Disco D</option>
+<option value="search-ms://E:/" > Disco E</option>
+<option value="search-ms://F:/" > Disco F</option>
+<option value="search-ms://G:/" > Disco G</option>
+<option value="search-ms://C:\Users\Giovanni\Desktop" > Escritorio</option>
+<option value="search-ms://C:\Users\Giovanni\Pictures" > Imagenes</option>
+<option value="search-ms://C:\Users\Giovanni\Music" > Musica</option>
+<option value="search-ms://C:\Users\Giovanni\Videos" > Videos</option>
+<option value="search-ms://C:\Users\Giovanni\Documents" > Documentos</option>
+</select>
+<input type="text" size="14" name="searchterms" value="" />
+<input type="hidden" name="num" value="100" />
+<input type="submit" style="font-size:14px;margin-top:2px;" name="SearchSubmit" value="Buscar ..." />
+<input type="reset" style="font-size:14px;margin-top:2px;" value="Limpiar" />
+</form></div>
+<script type="text/javascript">
+function buscar() {var sf=document.formulario;
+var submitto = sf.sengines.options[sf.sengines.selectedIndex].value + escape(sf.searchterms.value);
+window.location.href = submitto;
+return false;}
+</script>
+</body>
+</html>

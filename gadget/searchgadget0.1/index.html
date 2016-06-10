@@ -1,0 +1,31 @@
+<html>
+<head>
+<title>Garcil Tools&reg; SearchGadget</title>
+<style type="text/css" media="screen">
+body {height:110;width:164;padding:2px;border:3px solid #ddd;background-color:#3e6ce0;}
+h1 {font-size:14px;color:white;}
+</style>
+</head>
+<body>
+<div class="buscador" >
+<form name="formulario" action="" onsubmit="return buscar();">
+<select name="sengines" style="font-size:14px;" >
+<option value="http://www.google.com/search?q=" selected="selected" > Google</option>
+<option value="http://images.google.com/images?q=" > Google Imagenes</option>
+<option value="http://www.bing.com/search?q=" > Bing</option>
+<option value="http://maps.google.com/maps?q=" > Google Maps</option>
+<option value="http://www.youtube.com/results?search_query=" > Youtube</option>
+<option value="http://es.wikipedia.org/w/wiki.phtml?search=" >Wikipedia</option>
+</select>
+<input type="text" size="14" name="searchterms" value="" />
+<input type="submit" style="font-size:14px;margin-top:2px;" name="SearchSubmit" value="Buscar" />
+<input type="reset" style="font-size:14px;margin-top:2px;" value="Reset" />
+</form></div>
+<script type="text/javascript">
+function buscar() {var sf=document.formulario;
+var submitto = sf.sengines.options[sf.sengines.selectedIndex].value + escape(sf.searchterms.value);
+window.location.href = submitto;
+return false;}
+</script>
+</body>
+</html>

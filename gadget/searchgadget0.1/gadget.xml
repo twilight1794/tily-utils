@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" ?> 
+<gadget> 
+<name>SearchGadget</name> 
+<version>1.0</version> 
+<author name="Giovanny Garciliano &"> 
+<info url="http://garcil-tools.ucoz.org" />
+<logo src="logo.png"/> 
+</author> 
+<copyright>&#169; 2015</copyright> 
+<description>Gadget que permite hacer busquedas en varias paginas web</description> 
+<icons> 
+<icon height="48" width="48" src="icono.png" /> 
+</icons> 
+<hosts> 
+<host name="sidebar"> 
+<base type="HTML" src="index.html" /> 
+<permissions>full</permissions> 
+<platform minPlatformVersion="1.0" /> 
+<defaultImage src="logo.png" /> 
+</host> 
+</hosts> 
+</gadget>
