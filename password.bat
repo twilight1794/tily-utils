@@ -1,4 +1,4 @@
-@echo off
+﻿@echo off
 title PC Garcil Password Locker v1.0
 color 0a
 echo Escribir la ubicacion del archivo que desea ocultar con contraseña,es recomendable
@@ -33,6 +33,6 @@ echo Para abrir su archivo %name% introduzca la contrase a: >> %dir%\%name%
 echo set /p psw= >> %dir%\%name%
 echo if %psw%==%password% (%dir%\%name%) else (echo Contrase a Incorrecta && exit) >> %dir%\%name%
 cls
-echo Contrase a Aplicada!!!
+echo Contraseña Aplicada!!!
 pause>nul
 exit
