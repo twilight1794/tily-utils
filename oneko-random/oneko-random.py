@@ -1,66 +1,69 @@
-import subprocess
-import random
+from subprocess import call
+from random import randint
 import sys
 arg = sys.argv
-o = c = f = v = 0
-character = random.randint(0,4)
-try:
-	if arg.index("-c") or arg.index("--bgcolor"):
-		bgcolor = random.randint(0,4)
-except:
-	bgcolor = 9
-try:
-	if arg.index("-f") or arg.index("--fgcolor"):
-		fgcolor = random.randint(0,4)
-except:
-	fgcolor = 9
-try:
-	if arg.index("-v") or arg.index("--rvideo"):
-		rvideo = random.randint(0,1)
-except:
-	rvideo = 0
+# Checking system
+if sys.platform != "linux":
+    print ("")
+    exit (2) # Error 2: oneko-random only supports Linux systems
 # Character
-if o == 1:
-	o = "-tora"
-elif o == 2:
-	o = "-dog"
-elif o == 3:
-	o = "-sakura"
-elif o == 4:
-	o = "-tomoyo"
-elif o == 0:
-	o = "-neko"
+char = randint(1,5)
+if char == 1:
+    char = "-tora"
+elif char == 2:
+    char = "-dog"
+elif char == 3:
+    char = "-sakura"
+elif char == 4:
+    char = "-tomoyo"
+elif char == 5:
+    char = "-neko"
 # Background Color
-if c == 1:
-	c = "-bg red"
-elif c == 2:
-	c = "-bg green"
-elif c == 3:
-	c = "-bg blue"
-elif c == 4:
-	c = "-bg black"
-elif c == 0:
-	c = "-bg white"
-# Foreground Color
-if f == 1:
-	f = "-fg red"
-elif f == 2:
-	f = "-fg green"
-elif f == 3:
-	f = "-fg blue"
-elif f == 4:
-	f = "-fg black"
-elif f == 0:
-	f = "-fg white"
-# Invert Color
-if v == 1:
-	v = "-rv"
-elif v == 0:
-	v = ""
-command = ["oneko",o,c,f,v]
 try:
-	subprocess.call(command)
-	print ("ggg")
+    if arg.index("-c") r arg.index("--bgcolor"):
+	bgcolor = randint(1,5)
+    if bgcolor == 1:
+        bgcolor = "-bg red"
+    elif bgcolor == 2:
+        bgcolor = "-bg green"
+    elif bgcolor == 3:
+        bgcolor = "-bg blue"
+    elif bgcolor == 4:
+        bgcolor = "-bg black"
+    elif bgcolor == 5:
+        bgcolor = "-bg white"
 except:
-	print ("fff")
-	exit (1)
+    bgcolor = ""
+# Foreground Color
+try:
+    if arg.index("-f") or arg.index("--fgcolor"):
+	fgcolor = randint(1,5)
+    if fgcolor == 1:
+        fgcolor = "-fg red"
+    elif fgcolor == 2:
+    	fgcolor = "-fg green"
+    elif fgcolor == 3:
+	fgcolor = "-fg blue"
+    elif fgcolor == 4:
+	fgcolor = "-fg black"
+    elif fgcolor == 5:
+	fgcolor = "-fg white"
+except:
+	fgcolor = ""
+# Invert Color
+try:
+    if arg.index("-v") or arg.index("--rvideo"):
+        rvideo = randint(0,1)
+    if rvideo == 1:
+	rvideo = "-rv"
+    elif rvideo == 0:
+	rvideo = ""    
+except:
+    rvideo = 0
+# Create command
+command = ["oneko",char,bgcolor,fgcolor,rvideo]
+try:
+    call(command)
+    exit(0)
+except:
+    exit(1) # Error 1: Oneko not installed in the system
