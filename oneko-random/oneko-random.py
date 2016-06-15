@@ -2,10 +2,10 @@ from subprocess import call
 from random import randint
 import sys
 arg = sys.argv
-# Checking system
-if sys.platform != "linux":
-    print ("")
-    exit (2) # Error 2: oneko-random only supports Linux systems
+''' Checking system
+if sys.platform != "linux2":
+    print ("linux2")
+    exit (2) # Error 2: oneko-random only supports Linux systems'''
 # Character
 char = randint(1,5)
 if char == 1:
@@ -20,7 +20,7 @@ elif char == 5:
     char = "-neko"
 # Background Color
 try:
-    if arg.index("-c") r arg.index("--bgcolor"):
+    if arg.index("-c") or arg.index("--bgcolor"):
 	bgcolor = randint(1,5)
     if bgcolor == 1:
         bgcolor = "-bg red"
@@ -54,16 +54,15 @@ except:
 try:
     if arg.index("-v") or arg.index("--rvideo"):
         rvideo = randint(0,1)
-    if rvideo == 1:
 	rvideo = "-rv"
-    elif rvideo == 0:
-	rvideo = ""    
 except:
-    rvideo = 0
+    rvideo = ""
 # Create command
 command = ["oneko",char,bgcolor,fgcolor,rvideo]
 try:
+    print (command)
     call(command)
     exit(0)
 except:
+    print ("oneko")
     exit(1) # Error 1: Oneko not installed in the system
