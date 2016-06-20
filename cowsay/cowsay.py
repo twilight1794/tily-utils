@@ -29,7 +29,7 @@ def funcUser():
 if argc==1:
 	funcUser()
 elif argc!=3:
-	return 1 # return 1 : Incorrect Parameters
+	sys.exit(1) # return 1 : Incorrect Parameters
 else:
 	funcConsole(sys.argv[1],sys.argv[2])
 
