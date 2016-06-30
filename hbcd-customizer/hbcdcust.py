@@ -10,8 +10,8 @@ def main():
 		return 1 # Err1: No parameters
 	elif argc == 3 and argv[1] == "-h":
 		x=funcHelp(argv[2])
-    elif argc == 2 and argv[1] == "--help" and argv[1] == "-h":
-        x=funcHelp(0)
+	elif argc == 2 and argv[1] == "--help" and argv[1] == "-h":
+		x=funcHelp(0)
 	elif argv[1] == "-u":
 		x=mainu()
 	return x
@@ -26,7 +26,7 @@ def main():
 		f=argv[7]
 		if argv[1] == "-c":
 			x=mainc(a,b,c,d,e,f)
-            return x
+			return x
 		else:
 			return 3 # Err3: No mode program defined
 def mainc():
@@ -56,16 +56,26 @@ def mainu():
 	d = funcUdir()
 	e = funcUcomp()
 	f = funcUfile()
-    if b and c and d and e and f:
-    	try:
-	    	x=funcBuild(a,b,c,d,e,f)
-   		    print ("The operation has been completed successfully.")
-    	except:
-    		print ("Sorry, has ocurred an error in the program. :c")
-    	finally:
-    		sys.exit()
+	if b and c and d and e and f:
+		try:
+			x=funcBuild(a,b,c,d,e,f)
+			print ("The operation has been completed successfully.")
+		except:
+			print ("Sorry, has ocurred an error in the program. :c")
+		finally:
+			sys.exit()
 def funcHelp(a):
 def funcBuild(a,b,c,d,e,f):
+	csv = open("HBCDMenu.csv","a+")
+	cont = csv.read()
+	csv.close()
+	# Open CSV
+	# Write in CSV
+	# Open file
+	# Move
+	# Compress
+	# Close file
+	return 0
 def funcUname():
 	a=raw_input ("What is the name of your program?")
 	return a
@@ -80,36 +90,36 @@ def funcUgroup():
 			return a
 def funcUHBCD():
 	a=raw_input ("What is the path that you saved HBCD?")
-    try:
-    	if os.path.isabs(a) == False:
-	    	a = os.path.abspath(a)
-    	elif os.path.exists(a) == False:
-	    	return 11 # Err11: No exists directory or file
-    	elif os.path.access(a) == False:
-       		return 9 # Err9: No permisions
-    	b = a + "/HBCD/Programs/HBCDMenu.csv"
-	    elif os.path.isfile(b) == False:
-	    	return 8 # Err7: No HBCD directory
-    	else:
-    		return a
-    except:
-        return 10 # Err10: Undefined issue
+	try:
+		if os.path.isabs(a) == False:
+			a = os.path.abspath(a)
+		elif os.path.exists(a) == False:
+			return 11 # Err11: No exists directory or file
+		elif os.path.access(a) == False:
+			return 9 # Err9: No permisions
+		b = a + "/HBCD/Programs/HBCDMenu.csv"
+		elif os.path.isfile(b) == False:
+			return 8 # Err7: No HBCD directory
+		else:
+			return a
+	except:
+		return 10 # Err10: Undefined issue
 def funcUdir():
 	a=raw_input ("What is the path that you saved your program?")
-    try:
-    	if os.path.isabs(a) == False:
-	    	a = os.path.abspath(a)
-    	elif os.path.exists(a) == False:
-    		return 11 # Err11: No exists directory or file
-    	elif os.path.access(a) == False:
-    		return 9 # Err9: No permisions
-    	b = a + "*.exe"
-    	elif os.path.isfile(b) == False:
-    		return 8 # Err8: No program directory
-    	else:
-    		return a
-    except:
-        return 10 # Err10: Undefined issue
+	try:
+		if os.path.isabs(a) == False:
+			a = os.path.abspath(a)
+		elif os.path.exists(a) == False:
+			return 11 # Err11: No exists directory or file
+		elif os.path.access(a) == False:
+			return 9 # Err9: No permisions
+		b = a + "*.exe"
+		elif os.path.isfile(b) == False:
+			return 8 # Err8: No program directory
+		else:
+			return a
+	except:
+		return 10 # Err10: Undefined issue
 def funcUcomp():
 	print ("Choose any compress format:")
 	print ("1-zip 2-cab 3-uha 4-paq 5-7z")
