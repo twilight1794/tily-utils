@@ -2,7 +2,7 @@
 import os
 import sys
 import csv
-from PySide.QtGui import *
+# from PySide.QtGui import *
 argc = len(sys.argv)
 argv = sys.argv
 def main():
@@ -14,7 +14,7 @@ def main():
 		x=funcHelp(0)
 	elif argv[1] == "-u":
 		x=mainu()
-	return x
+		return x
 	elif argc != 8:
 		return 2 # Err2: No enough parameters
 	else:
@@ -65,6 +65,7 @@ def mainu():
 		finally:
 			sys.exit()
 def funcHelp(a):
+        xxxxc = q
 def funcBuild(a,b,c,d,e,f):
 	csv = open("HBCDMenu.csv","a+")
 	cont = csv.read()
@@ -91,13 +92,13 @@ def funcUgroup():
 def funcUHBCD():
 	a=raw_input ("What is the path that you saved HBCD?")
 	try:
+		b = a + "/HBCD/Programs/HBCDMenu.csv"
 		if os.path.isabs(a) == False:
 			a = os.path.abspath(a)
 		elif os.path.exists(a) == False:
 			return 11 # Err11: No exists directory or file
 		elif os.path.access(a) == False:
 			return 9 # Err9: No permisions
-		b = a + "/HBCD/Programs/HBCDMenu.csv"
 		elif os.path.isfile(b) == False:
 			return 8 # Err7: No HBCD directory
 		else:
@@ -107,13 +108,13 @@ def funcUHBCD():
 def funcUdir():
 	a=raw_input ("What is the path that you saved your program?")
 	try:
+		b = a + "*.exe"
 		if os.path.isabs(a) == False:
 			a = os.path.abspath(a)
 		elif os.path.exists(a) == False:
 			return 11 # Err11: No exists directory or file
 		elif os.path.access(a) == False:
 			return 9 # Err9: No permisions
-		b = a + "*.exe"
 		elif os.path.isfile(b) == False:
 			return 8 # Err8: No program directory
 		else:
