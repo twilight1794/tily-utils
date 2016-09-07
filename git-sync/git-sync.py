@@ -21,4 +21,9 @@ def openKey(key):
     p
 def delKey(key):
     p
+def delGitRepo:
+    if os.path.exists(".git"):
+        rmcom = ["rmdir","-r",path]
+        call(rmcom)
+        rmdir =
 sys.exit(main())
