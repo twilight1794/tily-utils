@@ -1,3 +1,5 @@
+#!/usr/bin/env python
+#-*-coding: utf-8 -*-
 import sys
 from subprocess import Popen
 from subprocess import PIPE
@@ -5,9 +7,9 @@ argc=len(sys.argv)
 def funcConsole(a, b):
 	try:
 		c=open(b,"rb")
-		print ("     /"+"-".center(len(a),"-")+"\\")
+		print ("     /"+"¯".center(len(a),"¯")+"\\")
 		print ("     |"+a+"|")
-		print ("     \\"+"-".center(len(a),"-")+"/")
+		print ("     \\"+"_".center(len(a),"_")+"/")
 		print ("      \\ |")
 		print ("       \\|")
 		print ("         .")
