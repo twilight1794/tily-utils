@@ -20,9 +20,9 @@ int main(int argc, char *argv[]){
       int j = num1 * stoi(to_string(num2).substr(i,1));
       if (j != 0){
         if (i == 0){
-          cout << "\e[4m" << genChars(width - to_string(j).length() - space, " ") << j << "\e[0m" << genChars(space, " ") << space << endl;
+          cout << "\e[4m" << genChars(width - to_string(j).length() - space, " ") << j << "\e[0m" << genChars(space, "_") << endl;
         } else {
-          cout << genChars(width - to_string(j).length() - space, " ") << j << genChars(space, " ") << space << endl;
+          cout << genChars(width - to_string(j).length() - space, " ") << j << genChars(space, "-") << endl;
         }
       }
       space++;
